@@ -9,5 +9,5 @@ npx serve test
 Then visit the following endpoint:
 
 `
-https://localhost:4200/api/login
+http://localhost:4200/api/login
 `
