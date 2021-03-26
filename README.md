@@ -1,4 +1,4 @@
-# To produce the error of `regeneratorRuntime is not defined` use the following steps
+## To produce the error of `regeneratorRuntime is not defined` use the following steps
 
 Launch the `test` application
 
