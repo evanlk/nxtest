@@ -3,7 +3,7 @@
 Launch the `test` application
 
 `
-npx serve test
+nx serve test
 `
 
 Then visit the following endpoint:
