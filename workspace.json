@@ -1,21 +1,10 @@
 {
   "version": 2,
-  "cli": {
-    "defaultCollection": "@nrwl/next"
-  },
+  "cli": { "defaultCollection": "@nrwl/next" },
   "defaultProject": "test",
   "generators": {
-    "@nrwl/react": {
-      "application": {
-        "babel": true
-      }
-    },
-    "@nrwl/next": {
-      "application": {
-        "style": "css",
-        "linter": "eslint"
-      }
-    }
+    "@nrwl/react": { "application": { "babel": true } },
+    "@nrwl/next": { "application": { "style": "css", "linter": "eslint" } }
   },
   "projects": {
     "test": {
@@ -26,20 +15,12 @@
         "build": {
           "executor": "@nrwl/next:build",
           "outputs": ["{options.outputPath}"],
-          "options": {
-            "root": "apps/test",
-            "outputPath": "dist/apps/test"
-          },
-          "configurations": {
-            "production": {}
-          }
+          "options": { "root": "apps/test", "outputPath": "dist/apps/test" },
+          "configurations": { "production": {} }
         },
         "serve": {
           "executor": "@nrwl/next:server",
-          "options": {
-            "buildTarget": "test:build",
-            "dev": true
-          },
+          "options": { "buildTarget": "test:build", "dev": true },
           "configurations": {
             "production": {
               "buildTarget": "test:build:production",
@@ -49,9 +30,7 @@
         },
         "export": {
           "executor": "@nrwl/next:export",
-          "options": {
-            "buildTarget": "test:build:production"
-          }
+          "options": { "buildTarget": "test:build:production" }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
@@ -63,9 +42,7 @@
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": ["apps/test/**/*.{ts,tsx,js,jsx}"]
-          }
+          "options": { "lintFilePatterns": ["apps/test/**/*.{ts,tsx,js,jsx}"] }
         }
       }
     },
@@ -82,15 +59,32 @@
             "devServerTarget": "test:serve"
           },
           "configurations": {
-            "production": {
-              "devServerTarget": "test:serve:production"
-            }
+            "production": { "devServerTarget": "test:serve:production" }
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
+          "options": { "lintFilePatterns": ["apps/test-e2e/**/*.{js,ts}"] }
+        }
+      }
+    },
+    "shared-util-session": {
+      "root": "libs/shared/util-session",
+      "sourceRoot": "libs/shared/util-session/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": ["apps/test-e2e/**/*.{js,ts}"]
+            "lintFilePatterns": ["libs/shared/util-session/**/*.ts"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/shared/util-session"],
+          "options": {
+            "jestConfig": "libs/shared/util-session/jest.config.js",
+            "passWithNoTests": true
           }
         }
       }
